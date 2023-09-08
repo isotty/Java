@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <div>
+        <div>
+            <h1>List Accident Type</h1>
+            <hr>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ListAccidentType : ${ListAccidentType}">
+                    <td th:text="${ListAccidentType.ID}"></td>
+                    <td th:text="${ListAccidentType.Name}"></td>
+                    <td>
+                        <a th:href="@{/ListAccidentType/edit/{id}(id=${ListAccidentType.ID})}">Edit</a>
+                        <a th:href="@{/ListAccidentType/delete/{id}(id=${ListAccidentType.ID})}" onclick="return confirm('Are you sure you wanna delete that book?')">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr>
+            <div>
+                <a th:href="@{/books/create}" >Add Book</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
